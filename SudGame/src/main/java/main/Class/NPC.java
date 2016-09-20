@@ -6,7 +6,7 @@ public class NPC {
 
 	private String name;
 	private int healt = 100;
-	private int strenth;
+	private int strenth =0;
 	private String level ="";
 	
 	
@@ -26,7 +26,13 @@ public class NPC {
 		setName();
 		setStrenght();
 		setLevel();
-		showNPC();
+		//getInfo();
+	}
+	
+	
+	public NPC(String name, int strenght){
+		this.name = name;
+		this.strenth = strenght;
 	}
 	
 	
@@ -54,7 +60,8 @@ public class NPC {
 	
 	
 	
-	public String showNPC(){
+	public String toString(){
+		//System.out.print(this.name +"("+ this.level + "), ");
 		return(this.name +"("+ this.level + ")");
 	}
 	

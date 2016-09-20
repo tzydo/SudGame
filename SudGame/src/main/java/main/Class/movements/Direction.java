@@ -1,4 +1,4 @@
-package main.Class;
+package main.Class.movements;
 
 public enum Direction {
 	
@@ -14,8 +14,8 @@ public enum Direction {
 	}
 	
 	
-	public String getDirectionDesc(){
-		return this.directionDesciption;
+	public String toString(){
+		return directionDesciption;
 	}
 	
 }

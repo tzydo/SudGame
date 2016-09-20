@@ -1,6 +1,9 @@
 package main.Class;
 import java.util.Random;
 
+import main.Class.location.*;
+import main.Class.movements.Direction;
+
 
 public class Player {
 
@@ -9,6 +12,8 @@ public class Player {
 	private int healt = 10000;
 	private int strenght = 10;
 	private Random random = new Random();
+	
+	
 	
 	
 	
