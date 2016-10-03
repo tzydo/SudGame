@@ -23,11 +23,10 @@ public class Location {
 		this.longDesc = longDesc;
 	}
 
-	public void printDescription() {
+	public String printDescription() {
 		npcList.clear();
 		generateList();
-		System.out.println(this.shortDesc + this.longDesc + "\n " + getExitString());
-		showEnemys();
+		return(this.shortDesc + this.longDesc + "\n " + getExitString() + "\n" +showEnemys());
 	}
 
 	public void addExit(Direction w, Location l) {
@@ -56,10 +55,9 @@ public class Location {
 		}
 	}
 
-	public void showEnemys() {
-		System.out.println("Enemys in this place : \n");
+	public String showEnemys() {
 		String enemys = Joiner.on(", ").join(npcList.keySet());
-		System.out.println(enemys);
+		return("Enemys in this place : \n" + enemys);
 	}
 
 	public Boolean npcInNpcList(String command) {
@@ -86,5 +84,9 @@ public class Location {
 	
 	public void addNpc(NPC npc){
 		npcList.put(npc,npcList.size()+1);
+	}
+
+	public Boolean checkInList(NPC npc) {
+		return npcList.containsKey(npc);		
 	}
 }
