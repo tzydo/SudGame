@@ -34,7 +34,7 @@ public class CommandParserTest {
 	public void actTest(){
 		spyCommands = Mockito.spy(commandParsers);
 		spyCommands.act("kill x x", player);
-		Mockito.verify(spyCommands,times(1)).equals("incorrect enemy name !");
+		Mockito.verify(spyCommands,Mockito.times(1)).equals("incorrect enemy name !");
 	}
 		
 	@Test

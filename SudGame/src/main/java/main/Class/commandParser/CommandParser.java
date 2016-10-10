@@ -19,7 +19,12 @@ public class CommandParser {
 		case "kill":
 			command = new KillCommand(target, player );
 			break;
-		
+			
+		case "look":
+			if(pom.length != 1)command = new LookCommand(player, target);
+			else
+				command = new LookCommand(player);
+			break;
 		case "n":
 		case "N":
 		case "north":

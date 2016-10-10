@@ -16,7 +16,7 @@ public class Player {
 	public void setLocation(Location location) {
 		stat.setLocation(location);
 	}
-
+	
 	public Location getLocation(){
 		return stat.getLocation();
 	}
@@ -30,6 +30,14 @@ public class Player {
 			return false;
 	}
 
+	public void setDescription(){
+		stat.setDescription(getLocation().showDescription());
+	}
+	public String getDescription(){
+		setDescription();
+		return stat.getDescription();
+	}
+	
 	public String getName() {
 		return stat.getName();
 	}
@@ -65,7 +73,7 @@ public class Player {
 	}
 
 	public boolean npcIsThere(NPC npc) {
-		return stat.getLocation().checkInList(npc);
+		return stat.getLocation().checkInNPCList(npc);
 		
 	}
 

@@ -12,6 +12,7 @@ public class Location {
 	private String longDesc;
 	Map<Direction, Location> exit = new HashMap<>();
 	private static Map<NPC, Integer> npcList = new HashMap<>();
+	private static Map<String, String> locationItems = new HashMap<>();
 
 	public Location() {
 		this.shortDesc = "short Description";
@@ -26,7 +27,7 @@ public class Location {
 	public String printDescription() {
 		npcList.clear();
 		generateList();
-		return(this.shortDesc + this.longDesc + "\n " + getExitString() + "\n" +showEnemys());
+		return (showDescription() + "\n " + getExitString() + "\n" + showEnemys());
 	}
 
 	public void addExit(Direction w, Location l) {
@@ -43,6 +44,10 @@ public class Location {
 
 	}
 
+	public String showDescription() {
+		return (this.shortDesc + ", " + this.longDesc);
+	}
+
 	public String getExitString() {
 		String ex = Joiner.on(", ").join(exit.keySet());
 		return (" Visible exits : " + ex);
@@ -57,7 +62,7 @@ public class Location {
 
 	public String showEnemys() {
 		String enemys = Joiner.on(", ").join(npcList.keySet());
-		return("Enemys in this place : \n" + enemys);
+		return ("Enemys in this place : \n" + enemys);
 	}
 
 	public Boolean npcInNpcList(String command) {
@@ -80,13 +85,26 @@ public class Location {
 	public void deleteNPC(NPC npc) {
 		npcList.remove(npc);
 	}
-	
-	
-	public void addNpc(NPC npc){
-		npcList.put(npc,npcList.size()+1);
+
+	public void addNpc(NPC npc) {
+		npcList.put(npc, npcList.size() + 1);
 	}
 
-	public Boolean checkInList(NPC npc) {
-		return npcList.containsKey(npc);		
+	public void addItem(String item, String itemDescription) {
+		locationItems.put(item, itemDescription);
+	}
+
+	public Boolean checkInItemList(String item) {
+		return locationItems.containsKey(item);
+	}
+
+	public String getItemDescription(String key) {
+		if(locationItems.containsKey(key))return locationItems.get(key);
+		else
+			return "incorect item name!";
+	}
+
+	public Boolean checkInNPCList(NPC npc) {
+		return npcList.containsKey(npc);
 	}
 }

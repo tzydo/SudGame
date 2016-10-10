@@ -11,6 +11,7 @@ public class Statistic {
 	private int points;
 	private Location location;
 	private String level ="";
+	private String description;
 
 	public Statistic(String name, int healt, int strenth, int magic, int agility,Location location) {
 		this.name = name;
@@ -22,7 +23,7 @@ public class Statistic {
 		setLevel(this.points);
 	}
 
-	public Statistic(String name, int healt, int strenth, int magic, int agility, int points) {
+	public Statistic(String name, int healt, int strenth, int magic, int agility, int points, String description) {
 		this.name = name;
 		this.healt = healt;
 		this.strenth = strenth;
@@ -30,6 +31,7 @@ public class Statistic {
 		this.agility = agility;
 		this.points = points;
 		setLevel(this.points);
+		this.description = description;
 	}
 	
 	private void setLevel(int strenth) {
@@ -100,5 +102,14 @@ public class Statistic {
 
 	public void setLevel(String level) {
 		this.level = level;
+	}
+
+	
+	public void setDescription(String description){
+		this.description = description;
+	}
+	
+	public String getDescription() {
+		return this.description;
 	}
 }

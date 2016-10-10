@@ -67,4 +67,23 @@ public class LocationTest {
 		
 		assertEquals("the same", npc, location.getNpc(name));
 	}
+	
+		
+	@Test
+	public void checTrueItemInItemListTest(){
+		location.addItem("dab", "wielkie drzewo");
+		location.addItem("kamien", "wielki glaz odgradzajacy Ci przejscie");
+		location.addItem("golab", "taki ptaszek");
+		assertEquals(true, location.checkInItemList("dab"));
+	}
+	
+	
+	@Test
+	public void getItemInfo(){
+		location.addItem("dab", "wielkie drzewo");
+		location.addItem("kamien", "wielki glaz odgradzajacy Ci przejscie");
+		location.addItem("golab", "taki ptaszek");
+		
+		assertEquals("wielkie drzewo", location.getItemDescription("dab"));
+	}
 }

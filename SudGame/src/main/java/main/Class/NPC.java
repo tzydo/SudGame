@@ -6,6 +6,7 @@ import main.Class.Statistic.Statistic;;
 public class NPC {
 
 	private Statistic stat;
+	private String description;
 
 	private String[] tab = { "Dexter Taylor", "Jordan Watson", "Brandon Miller", "Noah Clarke", "Joel Russell",
 			"Walker Paul", "Luciano Meyers", "Jasiah Mccoy", "Francisco Barber", "Dylan Knight", "Christopher Fox",
@@ -16,10 +17,19 @@ public class NPC {
 			"Kian Christensen", "Richard Espinoza", "Mayson Castaneda", "Zachariah Lynch", "Malcolm Macdonald",
 			"Augustus Flores" };
 
+	private String[] tabDescription = {
+			"is very very bad!",
+			"is a bad motherfucker!",
+			"is infected!",
+			"is a zombie!",
+			"is a bloodthirsty beast!"
+	};
+ 	
+	
 	private Random random = new Random();
 
 	public NPC() {
-		stat = new Statistic(setName(), 100, 10, 10, 10, setLevelPoints());
+		stat = new Statistic(setName(), 100, 10, 10, 10, setLevelPoints(),choiceRandomDescription());
 	}
 
 	private String setName() {
@@ -58,6 +68,24 @@ public class NPC {
 	
 	public Boolean isLive(){
 		return stat.isAlive();
+	}
+	
+	public String choiceRandomDescription(){
+		int nr = random.nextInt(tabDescription.length);
+		this.description = tabDescription[nr];
+		return this.description;
+	}
+	
+	public void setDescription(String description){
+		stat.setDescription(description);
+	}
+	
+	public String getDescription(){
+		return stat.getDescription();
+	}
+	
+	public void setName(String name){
+		stat.setName(name);
 	}
 	
 	@Override
