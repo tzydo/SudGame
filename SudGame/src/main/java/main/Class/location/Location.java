@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import com.google.common.base.Joiner;
 import main.Class.NPC;
+import main.Class.NPCQuest;
 import main.Class.movements.*;
 
 public class Location {
@@ -54,10 +55,13 @@ public class Location {
 	}
 
 	public void generateList() {
-		for (int i = 0; i < 5; i++) {
+		int i;
+		for (i=0; i < 5; i++) {
 			NPC a = new NPC();
 			npcList.put(a, i);
 		}
+		NPCQuest npcQ = new NPCQuest();
+		npcList.put(npcQ, i++);
 	}
 
 	public String showEnemys() {

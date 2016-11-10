@@ -19,7 +19,10 @@ public class CommandParser {
 		case "kill":
 			command = new KillCommand(target, player );
 			break;
-			
+		
+		case "hi":
+			command = new TalkWithNPCQuest(target, player);
+			break;
 		case "look":
 			if(pom.length != 1)command = new LookCommand(player, target);
 			else

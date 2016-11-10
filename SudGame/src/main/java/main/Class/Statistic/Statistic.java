@@ -34,6 +34,12 @@ public class Statistic {
 		this.description = description;
 	}
 	
+	
+	public Statistic(String name, String description){
+		this.name = name;
+		this.description = description;
+	}
+	
 	private void setLevel(int strenth) {
 		if(strenth>30 && strenth<=40)this.level = "hard";
 		if(strenth>20 && strenth<=30)this.level = "medium";
